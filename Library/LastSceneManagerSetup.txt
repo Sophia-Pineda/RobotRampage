@@ -1,0 +1,4 @@
+sceneSetups:
+- path: D:/School 2018 - 2019/Semester 3/Unity_GamesTutorials/Unity_Games_by_Tutorials_v3.1/09-making-a-first-person-shooter/starter/robotrampage/Assets/Scenes/Battle.unity
+  isLoaded: 1
+  isActive: 1
