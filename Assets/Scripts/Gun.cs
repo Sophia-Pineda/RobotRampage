@@ -21,6 +21,6 @@ protected virtual void update()
     }
     protected void Fire()
     {
-
+        GetComponentInChildren<Animator>().Play("Fire");
     }
 }
