@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
     [SerializeField]
     Sprite redReticle;
@@ -13,6 +13,24 @@ public class NewBehaviourScript : MonoBehaviour
     Sprite blueReticle;
     [SerializeField]
     Image reticle;
+
+    public void UpdateReticle()
+    {
+        switch (GunEquipper.activeWeaponType)
+        {
+            case Constants.Pistol:
+                reticle.sprite = redReticle;
+                break;
+            case Constants.AssaultRifle:
+                reticle.sprite = blueReticle;
+                break;
+            case Constants.Shotgun:
+                reticle.sprite = yellowReticle;
+                break;
+            default:
+                return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
