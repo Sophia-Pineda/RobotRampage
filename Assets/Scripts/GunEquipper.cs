@@ -25,7 +25,9 @@ public class GunEquipper : MonoBehaviour
     {
         pistol.SetActive(false);
         assaultRifle.SetActive(false);
-        shotgun.SetActive(true);
+        shotgun.SetActive(false);
+
+        weapon.SetActive(true);
         activeGun = weapon;
 
     }
