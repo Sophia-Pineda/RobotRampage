@@ -18,7 +18,7 @@ public class Constants : MonoBehaviour
     public const string YellowRobot = "YellowRobot";
     //PICKups
     public const int PickupPistolAmmo = 1;
-    public const int PickupAssualtRifleAmmo = 3;
+    public const int PickupAssaultRifleAmmo = 2;
     public const int PickupShotgunAmmo = 3;
     public const int PickupHealth = 4;
     public const int PickupArmor = 5;
@@ -29,7 +29,7 @@ public class Constants : MonoBehaviour
     public static readonly int[] AllPickupTypes = new int[5]
     {
         PickupPistolAmmo,
-        PickupAssualtRifleAmmo,
+        PickupAssaultRifleAmmo,
         PickupShotgunAmmo,
         PickupHealth,
         PickupArmor
