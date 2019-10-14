@@ -54,14 +54,34 @@ public class Robot : MonoBehaviour
       
     }
 
-  private void fire()
-         {
+     private void fire()
+     {
         GameObject missile = Instantiate(missileprefab);
         missile.transform.position = missileFireSpot.transform.position;
         missile.transform.rotation = missileFireSpot.transform.rotation;
         robot.Play("Fire");
-         }
+     }
+    public void TakeDamage(int amount)
+    {
+        if(isDead)
+        {
+            return;
+        }
+        health -= amount;
+
+        if (health <= 0)
+        {
+            isDead = true;
+            robot.Play("Die");
+            StartCoroutine("DestroyRobot");
+        }
+    }
    
+    IEnumerator DestroyRobot()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
+    }
 }
   
 

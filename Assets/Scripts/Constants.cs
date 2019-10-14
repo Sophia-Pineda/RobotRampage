@@ -24,7 +24,7 @@ public class Constants : MonoBehaviour
     public const int PickupArmor = 5;
     //misc
     public const string Game = "Game";
-    public const float CamerDefaultZoom = 60.0f;
+    public const float CameraDefaultZoom = 60.0f;
 
     public static readonly int[] AllPickupTypes = new int[5]
     {
