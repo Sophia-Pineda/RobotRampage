@@ -10,7 +10,7 @@ public class RobotSpawn : MonoBehaviour
     private int timesSpawned;     
     private int healthBonus = 0;
 
-    public void SpawnRobot()
+    public void SpawnRobots()
     {
         timesSpawned++;
         healthBonus += 1 * timesSpawned;
