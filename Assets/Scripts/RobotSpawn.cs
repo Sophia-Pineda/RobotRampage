@@ -7,6 +7,14 @@ public class RobotSpawn : MonoBehaviour
     [SerializeField]
     GameObject[] robots;
 
+    [SerializeField]
+    private AudioClip deathSound;
+    [SerializeField]
+    private AudioClip fireSound;
+    [SerializeField]
+    private AudioClip weakHitSound;
+
+
     private int timesSpawned;     
     private int healthBonus = 0;
 
