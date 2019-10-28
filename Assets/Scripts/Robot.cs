@@ -62,6 +62,7 @@ public class Robot : MonoBehaviour
 
      private void fire()
      {
+      
         GameObject missile = Instantiate(missileprefab);
         missile.transform.position = missileFireSpot.transform.position;
         missile.transform.rotation = missileFireSpot.transform.rotation;

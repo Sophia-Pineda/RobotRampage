@@ -14,13 +14,14 @@ public class Player : MonoBehaviour
     {
         ammo = GetComponent<Ammo>();
         gunEquipper = GetComponent<GunEquipper>();
+        
     }
 
     public void TakeDamage(int amount) // G  -- typo in book? won't run***
     {
         int healthDamage = amount;
-
-         if (armor > 0 )
+        
+        if (armor > 0 )
          {
               int effectiveArmor = armor * 2;
               effectiveArmor -= healthDamage;

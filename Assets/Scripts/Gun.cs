@@ -40,6 +40,9 @@ public class Gun : MonoBehaviour
 
     protected void Fire()
     {
+
+        GetComponentInChildren<Animator>().Play("Fire");   //moved from under the if statement
+
        if (ammo.HasAmmo(tag))
        {
             GetComponent<AudioSource>().PlayOneShot(liveFire);
@@ -49,7 +52,7 @@ public class Gun : MonoBehaviour
        {
             GetComponent<AudioSource>().PlayOneShot(dryFire);
        }
-            GetComponentInChildren<Animator>().Play("Fire");
+     
 
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         RaycastHit hit;
