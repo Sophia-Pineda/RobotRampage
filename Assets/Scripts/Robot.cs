@@ -57,12 +57,12 @@ public class Robot : MonoBehaviour
             timeLastFired = Time.time;
             fire();
         }
-      
+
     }
 
-     private void fire()
-     {
-      
+    private void fire()
+    {
+
         GameObject missile = Instantiate(missileprefab);
         missile.transform.position = missileFireSpot.transform.position;
         missile.transform.rotation = missileFireSpot.transform.rotation;
@@ -70,10 +70,10 @@ public class Robot : MonoBehaviour
 
         GetComponent<AudioSource>().PlayOneShot(fireSound);
 
-     }
+    }
     public void TakeDamage(int amount)
     {
-        if(isDead)
+        if (isDead)
         {
             return;
         }
@@ -93,13 +93,20 @@ public class Robot : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(weakHitSound);
         }
     }
-   
+
     IEnumerator DestroyRobot()
     {
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
+
+
+        Game.RemoveEnemy();
+
     }
-}
-  
+
+
+  }
+
+
 
 
