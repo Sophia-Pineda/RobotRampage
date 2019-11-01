@@ -7,9 +7,14 @@ public class Player : MonoBehaviour
     public int health;
     public int armor;
     public GameUI gameUI;
+    public Game game;
+    public AudioClip playerDead;
+
     private GunEquipper gunEquipper;
     private Ammo ammo;
-    // Start is called before the first frame update
+
+
+    
     void Start()
     {
         ammo = GetComponent<Ammo>();
@@ -22,7 +27,7 @@ public class Player : MonoBehaviour
         int healthDamage = amount;
         
         if (armor > 0 )
-         {
+        {
               int effectiveArmor = armor * 2;
               effectiveArmor -= healthDamage;
 
@@ -39,7 +44,7 @@ public class Player : MonoBehaviour
             armor = 0;
             gameUI.SetArmorText(armor);
 
-         }
+        }
 
          health -= healthDamage;
 
@@ -48,7 +53,9 @@ public class Player : MonoBehaviour
 
         if (health <=0 )
         {
-             Debug.Log("Game Over");
+            //Debug.Log("Game Over"); replaced with
+            GetComponent<AudioSource>().PlayOneShot(playerDead);
+            game.GameOver();
         } 
     }
     private void pickupHealth()
@@ -128,10 +135,5 @@ public class Player : MonoBehaviour
                 Debug.LogError("Bad pickup type passed" + pickupType);
                 break;
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

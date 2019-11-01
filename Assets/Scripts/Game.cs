@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Game : MonoBehaviour
@@ -15,6 +17,8 @@ public class Game : MonoBehaviour
     public int Score;
     public int waveCountdown;
     public bool isGameOver;
+    public GameObject gameOverPanel;
+
 
     //1 
     private void Start()
@@ -40,8 +44,8 @@ public class Game : MonoBehaviour
         gameUI.SetEnemyText(enemiesLeft);
     }
 
-private IEnumerator updateWaveTimer()
-        {
+    private IEnumerator updateWaveTimer()
+    {
             while (!isGameOver)
             {
                 yield return new WaitForSeconds(1.0f);
@@ -56,7 +60,7 @@ private IEnumerator updateWaveTimer()
                     gameUI.ShowNewWaveText();
                 }
             }
-        }
+    }
         public static void RemoveEnemy()
         {
             singleton.enemiesLeft--;
@@ -85,5 +89,43 @@ private IEnumerator updateWaveTimer()
         }
     }
 
+    public void OnGUI()
+    {
+        if(isGameOver && Cursor.visible == false)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    //2
+    public void GameOver()
+    {
+        isGameOver = true;
+        Time.timeScale = 0;
+        player.AddComponent<FirstPersonController>().enabled = false;
+        player.GetComponent<CharacterController>().enabled = false;
+        gameOverPanel.SetActive(true);
+    }
+
+    //3
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(Constants.SceneBattle);
+        gameOverPanel.SetActive(true);
+    }
+
+    //4
+    public void Exit()
+    {
+        Application.Quit();
+
+    }
+
+    //5 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(Constants.SceneMenu);
+    }
 }
 
